@@ -3,7 +3,7 @@
 _Learning the basics of embedded programming with AVR on an Arduino Uno R3 which has an ATmega328P microcontroller._
 
 
-The projects are from the "Projects Book" from the Arduino Starter Kit.
+The projects are from the "Projects Book" from the Arduino Starter Kit. The code might not do exactly what the book expects, as I'm actively trying to play around and test things.
 
 There is also a picture for each project describing the circuit. If there isn't one, then no circuit is needed, as in `01_Blink` project, which simply blinks the onboard LED.
 
