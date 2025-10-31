@@ -1,11 +1,13 @@
-# Learning Embedded Programming
+# AVR Arduino Uno R3 Programming
 
-## _Learning the basics of embedded programming with AVR on an Arduino Uno R3 which has an ATmega328P microcontroller_
+_Learning the basics of embedded programming with AVR on an Arduino Uno R3 which has an ATmega328P microcontroller_
 
 The projects are from the "Projects Book" from the Arduino Starter Kit.
 There is also a picture for each project describing the circuit. If there isn't one, then no circuit is needed, as in `01_Blink` project, which simply blinks the onboard LED.
 
 I'm not using the Arduino IDE to implement the code; instead I'm using "pure C" to write code for the hardware. I'm still using the Arduino bootloader because the main reason for this repo/project is to explore embedded programming with only the basics.
+
+## Workflow
 
 I'm working on Fedora Linux (via WSL) and here are the packages and programs I'm using for my "pure C" workflow:
 
