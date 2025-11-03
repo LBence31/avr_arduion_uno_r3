@@ -34,6 +34,15 @@ void uart_send(char *s)
     }
 }
 
+void analog_input_init()
+{
+    DDRC &= ~(1 << PC0);   // input
+    DIDR0 |= (1 << ADC0D); // DIDR0 - Digital Input Disable Register, 0 is for ADC channels, 1 is for analog comparator
+    ADMUX = (1 << REFS0);  // AVcc as ref, general Voltage referecne, 0 on all others -> right aligned(10bit), ADC0
+    ADCSRA = (1 << ADEN)   // enable ADC
+             | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); // prescaler 128
+}
+
 uint16_t analog_read()
 {
     ADCSRA |= (1 << ADSC); // set start conversation flag to 1 -> start listening
@@ -54,12 +63,7 @@ int main(void)
     DDRD |= (1 << PD2) | (1 << PD3) | (1 << PD4);     // output
     PORTD &= ~(1 << PD2) & ~(1 << PD3) & ~(1 << PD4); // set outputs as LOW
 
-    // configure analog input
-    DDRC &= ~(1 << PC0);   // input
-    DIDR0 |= (1 << ADC0D); // DIDR0 - Digital Input Disable Register, 0 is for ADC channels, 1 is for analog comparator
-    ADMUX = (1 << REFS0);  // AVcc as ref, general Voltage referecne, 0 on all others -> right aligned(10bit), ADC0
-    ADCSRA = (1 << ADEN)   // enable ADC
-             | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); // prescaler 128
+    analog_input_init();
 
     while (1)
     {
